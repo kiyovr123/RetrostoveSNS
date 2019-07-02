@@ -1,0 +1,9 @@
+<h3>投稿の編集</h3>
+
+    <div class="edit">
+        <div class="">
+            <%=@edit_post.id%>
+            <img src="<%="/photo/thumbnail/#{@edit_post.id.to_s}.jpg"%>">
+            <%=link_to("削除","/posts/#{@edit_post.id.to_s}/destroy",{method:"post"})%>
+        </div>
+    </div>

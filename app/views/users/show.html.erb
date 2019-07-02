@@ -1,0 +1,23 @@
+<% if @error_message%>
+    <div class="form_error">
+        <%=@error_message%>
+    </div>
+<% end %>
+
+<h3>UserName</h3>
+<p><%=@user.name %></p>
+<h3>Email</h3>
+<p><%=@user.email %></p>
+
+    <%= form_tag("/posts/new",{multipart:true}) do %>
+        <h4>FullSize画像</h4>
+        <p>解像度の推奨サイズは横2560pxです</p>
+          <input name="image" type="file">
+          <h4>サムネイル用画像</h4>
+        <p>サムネイルの画像サイズの推奨は500pxです</p>
+          <input name="thumbnail" type="file">
+        <input type="submit" value="送信">
+    <% end %>
+
+<%=link_to("投稿済み画像の編集","/posts/index")%>
+

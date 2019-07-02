@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="logo/icon.png">
+    <link rel="apple-touch-icon" href="logo/icon.png" sizes="180x180">
+    <link rel="icon" type="image/png" href="logo/icon.png" sizes="192x192">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords"
+        content="camera,portfolio,lens,posi,nega,film,Restrostove,photograph,nikon,nikonf2,oldcamera,yamadakiyotaka,山田清貴,">
+    <meta name="description" content="Retrostove is platform for photographers.">
+    <meta name="author" content="Yamada Kiyotaka">
+    <meta name="generator" content="K-Yamada">
+    <title>RetrostoveSNS</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+
+    <link href="css/bootstrap.custom.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="lightGallery/css/lightgallery.css">
+    <script src="lightGallery/js/lightgallery-all.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+  <style>
+    .nav.li{
+     display:inline;
+    }
+
+    body{
+      font-family: 'Ubuntu', sans-serif;
+    }
+  </style>
+  <head>
+  <div class="nav"></div>
+    <ul>
+    <% if @current_user %>
+      <li>
+        <%=link_to(@current_user.name,"/users/show/#{@current_user.id}") %>
+      </li>
+      <li>
+        <%=link_to("ログアウト","/users/logout",{method: :post}) %>
+      </li>
+      <li>
+        <%=link_to("ユーザー一覧","/users/index") %>
+      </li>
+      <li>
+        <%=link_to("Gallery","/") %>
+      </li>
+
+      <% else %>
+      <li>
+        <%=link_to("新規会員登録","new")%>
+      </li>
+    <% end %>
+
+    </ul>
+
+  </head>
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%=flash[:notice]%>
+    </div>
+  <% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<h3>自分の投稿一覧</h3>
+<% @post_list.each do |post|%>
+    <div class="photo">
+        <div class="tumbnail">
+            <%=link_to("#{post.id.to_s}","/posts/#{post.id.to_s}/edit")%>
+            <img src="<%="/photo/thumbnail/#{post.id.to_s}.jpg"%>" alt="">
+        </div>
+    </div>
+<%end%>

@@ -1,0 +1,115 @@
+
+<head>
+    <!-- BootstrapのCSS読み込み -->
+    <link href="css/bootstrap.custom.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="lightGallery/css/lightgallery.css">
+    <script src="lightGallery/js/lightgallery-all.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+  <style>
+        @media (max-width: 575.98px) {
+            #logo {
+                margin-top: 6rem;
+                margin-bottom: 6rem;
+                width: 33%
+            }
+        }
+
+        /* Small devices (landscape phones, 576px and up) */
+
+        @media (min-width: 576px) {
+            #logo {
+                margin-top: 6rem;
+                margin-bottom: 6rem;
+                width: 33%
+            }
+        }
+
+        /* Medium devices (tablets, 768px and up) */
+
+        @media (min-width: 768px) {
+            #logo {
+                margin-top: 6rem;
+                margin-bottom: 6rem;
+                width: 25%
+            }
+        }
+
+        /* Large devices (desktops, 992px and up) */
+
+        @media (min-width: 992px) {
+            #logo {
+                margin-top: 7rem;
+                margin-bottom: 7rem;
+                width: 18%
+            }
+        }
+
+        /* Extra large devices (large desktops, 1200px and up) */
+
+        @media (min-width: 1281px) {
+            #logo {
+                margin-top: 9rem;
+                margin-bottom: 9rem;
+                width: 9%
+            }
+        }
+
+        .container-fluid {
+            /* max-width: 90%; */
+            padding: 0%;
+            padding-right: 0.6rem;
+            padding-left: 0.6rem;
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+
+        .navbar {
+            padding-left: 0;
+            padding-right: 0;
+        }
+</style>
+
+<body>
+    <div class="contents text-center bg-white">
+        <div class="container-fluid">
+            <a href="login">
+                <img src="logo/logo.png" alt="" class="navbar-brand sm-2 mx-auto" id="logo">
+            </a>
+
+            <div class="card-columns">
+                <div class="lightGallery" style="cursor: hand; cursor:pointer;">
+                    <% @posts.each do |post|%>
+                        <div class="item card" data-src="<%="/photo/image/#{post.id.to_s}.jpg"%>" alt="">
+                        <img class="card-img" src="<%="/photo/thumbnail/#{post.id.to_s}.jpg"%>" alt="" />
+                        </div>
+                    <%end%>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        $('.lightGallery').lightGallery({
+            selector: '.item',
+            download: false,
+            progressBar: false,
+            counter: true,
+            controls: true,
+            thumbnail: false,
+            autoplay: false,
+            autoplayControls: true,
+            share: false,
+            hideBarsDelay: 1000
+        });
+
+    </script>
+
+</body>
+
+</html>

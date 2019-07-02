@@ -1,0 +1,101 @@
+
+<style>
+
+input#keyword{
+  border:2px black solid;
+  border-radius:20px;
+  box-shadow: black;
+  padding: 10px 65px;
+  outline:0;
+  background-color:#fffff3;
+  font-family: FontAwesome;
+
+  display: inline-block;
+
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+
+}
+ 
+input#keyword:focus {
+  background-color:#fffff3;
+  font-family: FontAwesome;
+}
+input:-webkit-autofill 
+{
+  /* ここで指定しているbackground-colorは黄色い背景色のことです */
+  -webkit-transition: background-color 9999s;
+  transition: background-color 9999s;
+}
+
+input#login{
+    background-color:black;
+    color:white;
+    border:none;
+    border-radius:20px;
+    box-shadow: black;
+    padding:10px 128px;
+}
+
+ @media (max-width: 575.98px) {
+            #logo {
+                margin-top: 6rem;
+                width: 33%
+            }
+        }
+
+        /* Small devices (landscape phones, 576px and up) */
+
+        @media (min-width: 576px) {
+            #logo {
+                margin-top: 6rem;
+                width: 33%
+            }
+        }
+
+        /* Medium devices (tablets, 768px and up) */
+
+        @media (min-width: 768px) {
+            #logo {
+                margin-top: 6rem;
+                width: 25%
+            }
+        }
+
+        /* Large devices (desktops, 992px and up) */
+
+        @media (min-width: 992px) {
+            #logo {
+                margin-top: 7rem;
+                width: 18%
+            }
+        }
+
+        /* Extra large devices (large desktops, 1200px and up) */
+
+        @media (min-width: 1281px) {
+            #logo {
+                margin-top: 16rem%;
+                width: 9%
+            }
+        }
+</style>
+
+<% if @error_message%>
+    <div class="form_error">
+        <%=@error_message%>
+    </div>
+<% end %>
+
+<%=form_tag("/users/login") do%>
+<div class="container-fluid text-center">
+  　    <img src="logo/logo.png" alt="" class="navbar-brand sm-2" id="logo">
+        <div class="login pt-5">
+            <input type="text" name="email" placeholder="&#xF002; Email" id="keyword" class="text-left mx-auto d-block">
+            <input type="password" name="password" placeholder="Password" id="keyword" class="mx-auto d-block mt-3" >
+            <input type="submit" value="LOGIN" class="mt-5" id="login">
+        </div>
+    </div>
+<% end %>
+

@@ -1,0 +1,12 @@
+
+<h3>ユーザー一覧</h3>
+
+<div class="user-list">
+    <% @user_list.each do |users| %>
+        <h3>ユーザー<%="#{users.id}"%></h3>
+        <p><%=users.name%></p>
+        <p><%=users.email%></p>
+         <p><%=users.password%></p>
+    <% end %>
+</div>
+
